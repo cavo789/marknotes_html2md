@@ -1,0 +1,22 @@
+<div>
+    <github_corner v-if="isVisible" :github_url='github_url' />
+    <apptitle v-if="isVisible" :title='app_title'
+        :subtitle='app_subtitle'></apptitle>
+    <howtouse v-if="isVisible" :title='howto_title'
+        :imgsrc='howto_imgsrc'>
+        <ol>
+            <li>Type the html code in the text area here below</li>
+            <li>
+                Click on the Convert button to see the MD rendering
+                at the right side
+            </li>
+            <li>
+                If looks fine, click on the Copy to clipboard button
+                to put it in your clipboard
+            </li>
+        </ol>
+        <h2>Tips</h2>
+    </howtouse>
+    <editor @toggleVisibility="toggleVisibility" />
+    <appfooter v-if="isVisible" />
+</div>

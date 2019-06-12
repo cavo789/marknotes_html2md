@@ -1,0 +1,11 @@
+<details>
+    <summary v-text="title"></summary>
+    <div class="columns">
+        <div class="column">
+            <slot></slot>
+        </div>
+        <div class="column">
+            <img v-if="imgsrc" v-bind:src="imgsrc" alt="Demo">
+        </div>
+    </div>
+</details>

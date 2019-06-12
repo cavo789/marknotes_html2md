@@ -1,0 +1,29 @@
+<div>
+    <div class="columns">
+        <div class="column is-half" v-if="showeditor">
+            <textarea class="textarea" rows="20"
+                v-model="HTML"></textarea>
+        </div>
+        <div class="column is-half">
+            <pre id="MD" v-html="MD" class="markdown-body">&nbsp;
+            </pre>
+        </div>&nbsp;
+    </div>
+    <div class="footer">
+        <div class="container">
+            <div class="buttons content">
+                <button v-if="MD" title="Show/Hide the editor"
+                    class="btnToggle button is-small is-info "
+                    @click="doToggle">
+                    Show/Hide editor
+                </button>
+                <button :disabled="clipboardDisabled==1" v-if="MD"
+                    title="Copy the rendered MD in the clipboard"
+                    class="btnClipboard button is-success is-small"
+                    data-clipboard-target="#MD">
+                    Copy
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
