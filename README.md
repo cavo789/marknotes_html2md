@@ -4,6 +4,8 @@
 
 > Quick HTML to markdown converter
 
+**Conversion is made in javascript, no server side action needed so nothing is sent to internet.**
+
 ## Table of Contents
 
 -   [Install](#install)
