@@ -48,9 +48,9 @@ For detailed explanation on how things work, consult the [docs for vue-loader](h
 
 ## Usage
 
-Type your markdown code in the editor, the HTML conversion is done on-the-fly.
+Type your html code in the editor, the markdown conversion is done on-the-fly.
 
-At the bottom of the page, you have a button for maximizing the HTML part (by hiding everything else) or two buttons for copying in the clipboard the HTML rendering or the HTML source code.mail f.i.
+At the bottom of the page, you have a button for maximizing the markdown part (by hiding everything else) and a `Copy` button for copying in the clipboard the markdown source code.
 
 ![demo.gif](image/demo.gif)
 
