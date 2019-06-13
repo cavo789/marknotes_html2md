@@ -1,4 +1,4 @@
-![banner](image/banner.jpg)
+![banner](image/banner.png)
 
 # marknotes_html2md
 
@@ -9,7 +9,6 @@
 -   [Install](#install)
 -   [Build Setup](#build-setup)
 -   [Usage](#usage)
--   [Tips](#tips)
 -   [Author](#author)
 -   [License](#license)
 
@@ -54,11 +53,6 @@ Type your markdown code in the editor, the HTML conversion is done on-the-fly.
 At the bottom of the page, you have a button for maximizing the HTML part (by hiding everything else) or two buttons for copying in the clipboard the HTML rendering or the HTML source code.mail f.i.
 
 ![demo.gif](image/demo.gif)
-
-## Tips
-
--   You can type something like `==important part==` to put that section in a highlighted section.
--   When the markdown content start with a YAML block, that block is ignored during the HTML conversion
 
 ## Author
 
