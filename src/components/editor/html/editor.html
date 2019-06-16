@@ -1,6 +1,8 @@
 <div>
     <div class="columns">
         <div class="column is-half" v-if="showeditor">
+            <input type="text" v-model="URL" size="100"
+                v-on:change="changeURL" />
             <textarea class="textarea" rows="20"
                 v-model="HTML"></textarea>
         </div>

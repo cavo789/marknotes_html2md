@@ -3,6 +3,8 @@ import ClipboardJS from 'clipboard';
 // @link https://www.npmjs.com/package/h2m
 import h2m from 'h2m';
 
+import axios from 'axios';
+
 export default {
     name: "editor",
     props: {
@@ -43,10 +45,16 @@ export default {
                 "<h2 id='license'>License</h2>\n" +
                 "<p><a href='LICENSE'>MIT</a></p>"
 
-        }
+        },
+        URL: {
+            type: String,
+            required: false,
+            value: "https://www.marknotes.fr/docs/Windows/Changer%20son%20wallpaper.html"
+        },
     },
     data: function () {
         return {
+            URL: this.URL,
             showeditor: this.showEditor,
             clipboardDisabled: 1
         }
@@ -62,6 +70,23 @@ export default {
         }
     },
     methods: {
+        changeURL() {
+            if (this.URL !== '') {
+                // Crawl and get the HTML of the page
+                axios.post('crawl.php',
+                    {
+                        url: window.btoa(this.URL)
+                    })
+                    .then((response) => {
+                        if (response.status === 200) {
+                            this.HTML = response.data;
+                        }
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
+            }
+        },
         doToggle(e) {
             this.showeditor = !(this.showeditor);
             this.$emit('toggleVisibility', e);

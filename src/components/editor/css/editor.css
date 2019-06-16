@@ -3,6 +3,10 @@ textarea {
     font-family:Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New, monospace;
 }
 
+input {
+    width: 500px;
+}
+
 .form-control {
     padding: none;
     font-size: 0.8em;
