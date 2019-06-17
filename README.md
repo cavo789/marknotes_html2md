@@ -8,19 +8,43 @@
 
 ## Table of Contents
 
--   [Install](#install)
--   [Build Setup](#build-setup)
--   [Usage](#usage)
--   [Author](#author)
--   [License](#license)
-
+* [Table of Contents](#Table-of-Contents)
+* [Install](#Install)
+* [Usage](#Usage)
+* [Cool things](#Cool-things)
+  * [Get content not the page](#Get-content-not-the-page)
+  * [Convert back MD to HTML](#Convert-back-MD-to-HTML)
+* [You are a developer and you want to modify the code?](#You-are-a-developer-and-you-want-to-modify-the-code)
+* [Author](#Author)
+* [License](#License)
+*
 ## Install
 
-Clone this repository or click on the `[Clone or download](https://github.com/cavo789/marknotes_html2md/archive/master.zip)` green button and get a copy of the program.
+Do you need a local copy of this script? If no, don't install anything, just use it online: [https://html2md.avonture.be](https://html2md.avonture.be).
 
-You can also use the [interface online](https://html2md.avonture.be) without installing anything.
+Otherwise, if you want a copy on your own server; just clone this repository or click on the `[Clone or download](https://github.com/cavo789/marknotes_html2md/archive/master.zip)` green button and get a copy of the program.
 
-## Build Setup
+## Usage
+
+You can either enter a valid URL or type your html code in the editor in the left part and the markdown conversion will be on-the-fly. Just in real time.
+
+At the bottom of the page, you have a button for maximizing the markdown part (by hiding everything else) and a `Copy` button for copying in the clipboard the markdown source code.
+
+![demo.gif](image/demo.gif)
+
+## Cool things
+
+### Get content not the page
+
+When you type an URL, the script will do his best to only focus on the content and not the page: page headers will be removed, html tags like `<style>`, `<script>`, `<header>`, `<footer>`, `<navigation>`, ... will be ignored while tags like `<article>` or `<content>` will be targeted.
+
+### Convert back MD to HTML
+
+Use [https://md2html.avonture.be/](https://md2html.avonture.be/) to convert back the markdown to HTML.
+
+Why is it cool? Because MD content is easily translatable (just copy/paste into f.i. [https://www.deepl.com/translator](https://www.deepl.com/translator)). You'll get the text, in your language without fioritures.
+
+## You are a developer and you want to modify the code?
 
 Only if you're a developer and need to change something. **If not, just ignore this chapter.**
 
@@ -47,14 +71,6 @@ npm run build
 This third and last instruction will consolidate and minify your assets into a single file called `dist/build.js`. When this step is done, you can access your local site without the need to run `npm run dev`; you're ready for publishing the site to Internet or somewhere else.
 
 For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
-
-## Usage
-
-Type your html code in the editor, the markdown conversion is done on-the-fly.
-
-At the bottom of the page, you have a button for maximizing the markdown part (by hiding everything else) and a `Copy` button for copying in the clipboard the markdown source code.
-
-![demo.gif](image/demo.gif)
 
 ## Author
 
