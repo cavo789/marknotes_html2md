@@ -1,12 +1,18 @@
 <div>
     <div class="columns">
-        <div class="column is-half" v-if="showeditor">
-            <input type="text" v-model="URL" size="100"
-                v-on:change="changeURL" />
+        <div class="column is-half" v-if="showEditor">
+            <p>Capture the URL of a page? Type the URL here: <input
+                    type="text" v-model="URL" size="100"
+                    v-on:change="changeURL" /></p>
+
             <textarea class="textarea" rows="20"
                 v-model="HTML"></textarea>
         </div>
         <div class="column is-half">
+            <p>Tip: use <a href="https://md2html.avonture.be/"
+                    target="_blank">https://md2html.avonture.be/</a>
+                to convert markdown to html back.</p>
+
             <pre id="MD" v-html="MD" class="markdown-body">&nbsp;
             </pre>
         </div>&nbsp;

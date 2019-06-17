@@ -8,11 +8,6 @@ import axios from 'axios';
 export default {
     name: "editor",
     props: {
-        showEditor: {
-            type: Boolean,
-            required: false,
-            default: true
-        },
         HTML: {
             type: String,
             required: false,
@@ -45,17 +40,12 @@ export default {
                 "<h2 id='license'>License</h2>\n" +
                 "<p><a href='LICENSE'>MIT</a></p>"
 
-        },
-        URL: {
-            type: String,
-            required: false,
-            value: "https://www.marknotes.fr/docs/Windows/Changer%20son%20wallpaper.html"
-        },
+        }
     },
     data: function () {
         return {
-            URL: this.URL,
-            showeditor: this.showEditor,
+            URL: 'https://github.com/cavo789/marknotes_html2md',
+            showEditor: 1,
             clipboardDisabled: 1
         }
     },
@@ -88,7 +78,7 @@ export default {
             }
         },
         doToggle(e) {
-            this.showeditor = !(this.showeditor);
+            this.showEditor = !(this.showEditor);
             this.$emit('toggleVisibility', e);
         }
     },

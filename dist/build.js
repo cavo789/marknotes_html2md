@@ -2008,27 +2008,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "editor",
     props: {
-        showEditor: {
-            type: Boolean,
-            required: false,
-            default: true
-        },
         HTML: {
             type: String,
             required: false,
             default: "<h1 id='marknotes_html2md'>marknotes_html2md</h1>\n" + "<blockquote>\n" + "<p>Quick HTML to markdown converter</p>\n" + "</blockquote>\n" + "<h2 id='table-of-contents'>Table of Contents</h2>\n" + "<ul>\n" + "<li><a href='#install'>Install</a></li>\n" + "<li><a href='#usage'>Usage</a></li>\n" + "<li><a href='#author'>Author</a></li>\n" + "<li><a href='#license'>License</a></li>\n" + "</ul>\n" + "<h2 id='install'>Install</h2>\n" + "<p>Clone this repository or click on the [Clone or download] " + "green button and get a copy of the program.</p>\n" + "<p>You can also use the " + "<a href='https://html2md.avonture.be'>" + "interface online</a> without installing anything.</p>\n" + "<h2 id='usage'>Usage</h2>\n" + "<p>Type your markdown code in the editor, the HTML " + "conversion is done on- the - fly.</p>\n" + "<p>At the bottom of the page, you have a button for " + "maximizing the HTML part(by hiding everything else) " + "or two buttons for copying in the clipboard the HTML " + "rendering or the HTML source code.mail f.i.</p>\n" + "<h2 id='author'>Author</h2>\n" + "<p>Christophe Avonture</p>\n" + "<h2 id='license'>License</h2>\n" + "<p><a href='LICENSE'>MIT</a></p>"
 
-        },
-        URL: {
-            type: String,
-            required: false,
-            value: "https://www.marknotes.fr/docs/Windows/Changer%20son%20wallpaper.html"
         }
     },
     data: function data() {
         return {
-            URL: this.URL,
-            showeditor: this.showEditor,
+            URL: 'https://github.com/cavo789/marknotes_html2md',
+            showEditor: 1,
             clipboardDisabled: 1
         };
     },
@@ -2060,7 +2050,7 @@ __webpack_require__.r(__webpack_exports__);
             }
         },
         doToggle: function doToggle(e) {
-            this.showeditor = !this.showeditor;
+            this.showEditor = !this.showEditor;
             this.$emit('toggleVisibility', e);
         }
     },
@@ -10330,7 +10320,7 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[(_vm.isVisible)?_c('github_corner',{attrs:{"github_url":_vm.github_url}}):_vm._e(),_vm._v(" "),(_vm.isVisible)?_c('apptitle',{attrs:{"title":_vm.app_title,"subtitle":_vm.app_subtitle}}):_vm._e(),_vm._v(" "),(_vm.isVisible)?_c('howtouse',{attrs:{"title":_vm.howto_title,"imgsrc":_vm.howto_imgsrc}},[_c('ol',[_c('li',[_vm._v("Type the html code in the text area here below")]),_vm._v(" "),_c('li',[_vm._v("HTML code is automatically converted into markdown\n            ")]),_vm._v(" "),_c('li',[_vm._v("To copy the markdown code in the clipboard, just click\n                on the Copy button in the bottom left")])])]):_vm._e(),_vm._v(" "),_c('editor',{attrs:{"URL":"https://www.marknotes.fr/docs/Windows/Changer%20son%20wallpaper.html"},on:{"toggleVisibility":_vm.toggleVisibility}}),_vm._v(" "),(_vm.isVisible)?_c('appfooter'):_vm._e()],1)}
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[(_vm.isVisible)?_c('github_corner',{attrs:{"github_url":_vm.github_url}}):_vm._e(),_vm._v(" "),(_vm.isVisible)?_c('apptitle',{attrs:{"title":_vm.app_title,"subtitle":_vm.app_subtitle}}):_vm._e(),_vm._v(" "),(_vm.isVisible)?_c('howtouse',{attrs:{"title":_vm.howto_title,"imgsrc":_vm.howto_imgsrc}},[_c('ol',[_c('li',[_vm._v("Type the html code in the text area here below OR type\n                any valid URL")]),_vm._v(" "),_c('li',[_vm._v("HTML code is automatically converted into markdown\n            ")]),_vm._v(" "),_c('li',[_vm._v("To copy the markdown code in the clipboard, just click\n                on the Copy button in the bottom left")])])]):_vm._e(),_vm._v(" "),_c('editor',{attrs:{"URL":""},on:{"toggleVisibility":_vm.toggleVisibility}}),_vm._v(" "),(_vm.isVisible)?_c('appfooter'):_vm._e()],1)}
 var staticRenderFns = []
 
 
@@ -10384,8 +10374,8 @@ var staticRenderFns = []
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('div',{staticClass:"columns"},[(_vm.showeditor)?_c('div',{staticClass:"column is-half"},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.URL),expression:"URL"}],attrs:{"type":"text","size":"100"},domProps:{"value":(_vm.URL)},on:{"change":_vm.changeURL,"input":function($event){if($event.target.composing){ return; }_vm.URL=$event.target.value}}}),_vm._v(" "),_c('textarea',{directives:[{name:"model",rawName:"v-model",value:(_vm.HTML),expression:"HTML"}],staticClass:"textarea",attrs:{"rows":"20"},domProps:{"value":(_vm.HTML)},on:{"input":function($event){if($event.target.composing){ return; }_vm.HTML=$event.target.value}}})]):_vm._e(),_vm._v(" "),_c('div',{staticClass:"column is-half"},[_c('pre',{staticClass:"markdown-body",attrs:{"id":"MD"},domProps:{"innerHTML":_vm._s(_vm.MD)}},[_vm._v(" \n            ")])]),_vm._v(" \n    ")]),_vm._v(" "),_c('div',{staticClass:"footer"},[_c('div',{staticClass:"container"},[_c('div',{staticClass:"buttons content"},[(_vm.MD)?_c('button',{staticClass:"btnToggle button is-small is-info ",attrs:{"title":"Show/Hide the editor"},on:{"click":_vm.doToggle}},[_vm._v("\n                    Show/Hide editor\n                ")]):_vm._e(),_vm._v(" "),(_vm.MD)?_c('button',{staticClass:"btnClipboard button is-success is-small",attrs:{"disabled":_vm.clipboardDisabled==1,"title":"Copy the rendered MD in the clipboard","data-clipboard-target":"#MD"}},[_vm._v("\n                    Copy\n                ")]):_vm._e()])])])])}
-var staticRenderFns = []
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('div',{staticClass:"columns"},[(_vm.showEditor)?_c('div',{staticClass:"column is-half"},[_c('p',[_vm._v("Capture the URL of a page? Type the URL here: "),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.URL),expression:"URL"}],attrs:{"type":"text","size":"100"},domProps:{"value":(_vm.URL)},on:{"change":_vm.changeURL,"input":function($event){if($event.target.composing){ return; }_vm.URL=$event.target.value}}})]),_vm._v(" "),_c('textarea',{directives:[{name:"model",rawName:"v-model",value:(_vm.HTML),expression:"HTML"}],staticClass:"textarea",attrs:{"rows":"20"},domProps:{"value":(_vm.HTML)},on:{"input":function($event){if($event.target.composing){ return; }_vm.HTML=$event.target.value}}})]):_vm._e(),_vm._v(" "),_c('div',{staticClass:"column is-half"},[_vm._m(0),_vm._v(" "),_c('pre',{staticClass:"markdown-body",attrs:{"id":"MD"},domProps:{"innerHTML":_vm._s(_vm.MD)}},[_vm._v(" \n            ")])]),_vm._v(" \n    ")]),_vm._v(" "),_c('div',{staticClass:"footer"},[_c('div',{staticClass:"container"},[_c('div',{staticClass:"buttons content"},[(_vm.MD)?_c('button',{staticClass:"btnToggle button is-small is-info ",attrs:{"title":"Show/Hide the editor"},on:{"click":_vm.doToggle}},[_vm._v("\n                    Show/Hide editor\n                ")]):_vm._e(),_vm._v(" "),(_vm.MD)?_c('button',{staticClass:"btnClipboard button is-success is-small",attrs:{"disabled":_vm.clipboardDisabled==1,"title":"Copy the rendered MD in the clipboard","data-clipboard-target":"#MD"}},[_vm._v("\n                    Copy\n                ")]):_vm._e()])])])])}
+var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('p',[_vm._v("Tip: use "),_c('a',{attrs:{"href":"https://md2html.avonture.be/","target":"_blank"}},[_vm._v("https://md2html.avonture.be/")]),_vm._v("\n                to convert markdown to html back.")])}]
 
 
 

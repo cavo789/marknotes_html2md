@@ -5,14 +5,14 @@
     <howtouse v-if="isVisible" :title='howto_title'
         :imgsrc='howto_imgsrc'>
         <ol>
-            <li>Type the html code in the text area here below</li>
+            <li>Type the html code in the text area here below OR type
+                any valid URL</li>
             <li>HTML code is automatically converted into markdown
             </li>
             <li>To copy the markdown code in the clipboard, just click
                 on the Copy button in the bottom left</li>
         </ol>
     </howtouse>
-    <editor @toggleVisibility="toggleVisibility"
-        URL="https://www.marknotes.fr/docs/Windows/Changer%20son%20wallpaper.html" />
+    <editor @toggleVisibility="toggleVisibility" URL="" />
     <appfooter v-if="isVisible" />
 </div>
