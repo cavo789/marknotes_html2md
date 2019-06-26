@@ -1,5 +1,7 @@
 import ClipboardJS from 'clipboard';
 
+import buttons_links from '../../buttons_links/buttons_links.vue';
+
 // @link https://www.npmjs.com/package/h2m
 import h2m from 'h2m';
 
@@ -7,6 +9,7 @@ import axios from 'axios';
 
 export default {
     name: "editor",
+    components: { buttons_links },
     props: {
         HTML: {
             type: String,
@@ -40,13 +43,15 @@ export default {
                 "<h2 id='license'>License</h2>\n" +
                 "<p><a href='LICENSE'>MIT</a></p>"
 
-        }
+        },
+        default_url: 'https://github.com/cavo789/marknotes_html2md',
     },
     data: function () {
         return {
-            URL: 'https://github.com/cavo789/marknotes_html2md',
+            url: '',
             showEditor: 1,
-            clipboardDisabled: 1
+            clipboardDisabled: 1,
+            loading: true,
         }
     },
     computed: {
@@ -54,23 +59,59 @@ export default {
             if (this.HTML == '') {
                 return '';
             }
+
             var md = h2m(this.HTML);
+
+            this.loading = false;
 
             return md;
         }
     },
+    created() {
+        // Retrieve the ?url= parameter on querystring
+        var urlParams = new URLSearchParams(location.search);
+        var url = urlParams.get('url');
+
+        if (url !== null) {
+            this.url = url;
+            this.changeURL();
+        } else {
+            this.url = this.default_url;
+        }
+    },
     methods: {
         changeURL() {
-            if (this.URL !== '') {
+            if (this.url !== '') {
+
+                var urlParams = new URLSearchParams(location.search);
+                var previous_url = urlParams.get('url');
+
+                if (previous_url !== this.url) {
+
+                    var url = window.location.href;
+                    var urlParts = url.split('?');
+                    if (urlParts.length > 0) {
+                        var baseUrl = urlParts[0];
+                        var updatedQueryString = "url=" + this.url
+
+                        var updatedUri = baseUrl + '?' + updatedQueryString;
+                        window.history.replaceState({}, document.title, updatedUri);
+                    }
+
+                }
+
+                this.loading = true;
+
                 // Crawl and get the HTML of the page
                 axios.post('crawl.php',
                     {
-                        url: window.btoa(this.URL)
+                        url: window.btoa(this.url)
                     })
                     .then((response) => {
                         if (response.status === 200) {
                             this.HTML = response.data;
                         }
+
                     })
                     .catch(function (error) {
                         console.log(error);
@@ -79,10 +120,13 @@ export default {
         },
         doToggle(e) {
             this.showEditor = !(this.showEditor);
+            this.colWidth = 24;
+
             this.$emit('toggleVisibility', e);
         }
     },
     mounted() {
+
         // If ClipboardJS library is correctly loaded,
         if (typeof ClipboardJS === 'function') {
             // Remove the disabled attribute
@@ -91,8 +135,18 @@ export default {
             // Handle the click event on buttons
             var clipboard = new ClipboardJS('.btnClipboard');
 
+            let that = this;
+
             clipboard.on('success', function (e) {
-                alert('Copied!');
+
+                that.$notify({
+                    title: 'Copied!',
+                    type: 'success',
+                    position: 'bottom-right',
+                    message: 'Markdown source has been copied in the clipboard.',
+                    duration: 5000
+                });
+
                 e.clearSelection();
             });
         }

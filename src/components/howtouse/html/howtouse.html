@@ -3,9 +3,15 @@
     <div class="columns">
         <div class="column">
             <slot></slot>
+            <el-alert title="Tip" type="info">You can specify
+                the URL like this:
+                https://html2md.avonture.be/?url=https://domain/page.html
+            </el-alert>
         </div>
         <div class="column">
             <img v-if="imgsrc" v-bind:src="imgsrc" alt="Demo">
         </div>
     </div>
+
+
 </details>

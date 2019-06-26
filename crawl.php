@@ -99,8 +99,8 @@ class Crawl
     private function retrieveHTML(): bool
     {
         if ($this->use_session) {
-            if (isset($_SESSION[$this->url])) {
-                $this->html = $_SESSION[$this->url];
+            if (isset($_SESSION[md5($this->url)])) {
+                $this->html = $_SESSION[md5($this->url)];
 
                 return true;
             }
@@ -120,7 +120,7 @@ class Crawl
         $this->html = curl_exec($ch);
 
         if ($this->use_session) {
-            $_SESSION[$this->url] = $this->html;
+            $_SESSION[md5($this->url)] = $this->html;
         }
 
         curl_close($ch);

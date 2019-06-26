@@ -1,37 +1,49 @@
-<div>
-    <div class="columns">
-        <div class="column is-half" v-if="showEditor">
-            <p>Capture the URL of a page? Type the URL here: <input
-                    type="text" v-model="URL" size="100"
-                    v-on:change="changeURL" /></p>
+<el-main>
+    <el-form label-position="left">
+        <el-row :gutter="20" v-if="showEditor">
+            <el-col :span="12">
+                <el-form-item
+                    label="Type a page URL here and get his HTML:">
+                    <el-input
+                        placeholder="https://github.com/cavo789/marknotes_html2md"
+                        v-model="url" v-on:change="changeURL"
+                        size="200" :clearable="true">
+                    </el-input>
+                </el-form-item>
+            </el-col>
+            <el-col :span="12">
+                <buttons_links />
+            </el-col>
+        </el-row>
 
-            <textarea class="textarea" rows="20"
-                v-model="HTML"></textarea>
-        </div>
-        <div class="column is-half">
-            <p>Tip: use <a href="https://md2html.avonture.be/"
-                    target="_blank">https://md2html.avonture.be/</a>
-                to convert markdown to html back.</p>
+        <el-row :gutter="20">
+            <el-col :span="12" v-if="showEditor">
+                <el-input type="textarea"
+                    :autosize="{ minRows: 5, maxRows: 20  }"
+                    placeholder="Type any HTML code here; with tags"
+                    v-model="HTML">
+                </el-input>
+            </el-col>
+            <el-col :span="12">
+                <el-input type="textarea" id="MD" v-loading="loading"
+                    :autosize="{ minRows: 5, maxRows: 20  }"
+                    :readonly="true" v-model="MD">
+                </el-input>
+            </el-col>
+        </el-row>
 
-            <pre id="MD" v-html="MD" class="markdown-body">&nbsp;
-            </pre>
-        </div>&nbsp;
-    </div>
-    <div class="footer">
-        <div class="container">
-            <div class="buttons content">
-                <button v-if="MD" title="Show/Hide the editor"
-                    class="btnToggle button is-small is-info "
-                    @click="doToggle">
-                    Show/Hide editor
-                </button>
-                <button :disabled="clipboardDisabled==1" v-if="MD"
-                    title="Copy the rendered MD in the clipboard"
-                    class="btnClipboard button is-success is-small"
-                    data-clipboard-target="#MD">
-                    Copy
-                </button>
-            </div>
-        </div>
-    </div>
-</div>
+        <el-row :gutter="20">
+            <el-col :span="12">
+                <el-button v-if="MD" @click="doToggle"
+                    class="btnClipboard" type="primary"
+                    icon="el-icon-magic-stick">
+                    Maximize the markdown area
+                </el-button>
+                <el-button v-if="MD" :disabled="clipboardDisabled==1"
+                    data-clipboard-target="#MD" class="btnClipboard"
+                    type="info" icon="el-icon-copy-document">
+                    Copy</el-button>
+            </el-col>
+        </el-row>
+    </el-form>
+</el-main>

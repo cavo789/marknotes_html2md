@@ -1,0 +1,9 @@
+<el-row>
+    <p>Need markdown tools? Test these utilities...</p>
+    <el-button-group v-for="(button, index) in buttons"
+        v-bind:key="button.id">
+        <el-button round type="primary" v-text="button.caption"
+            size="small" @click="gotoTools(button.url)">
+        </el-button>
+    </el-button-group>
+</el-row>
