@@ -12,12 +12,13 @@
 * [Install](#Install)
 * [Usage](#Usage)
 * [Cool things](#Cool-things)
+  * [Using the url querystring parameter](#Using-the-url-querystring-parameter)
   * [Get content not the page](#Get-content-not-the-page)
   * [Convert back MD to HTML](#Convert-back-MD-to-HTML)
 * [You are a developer and you want to modify the code?](#You-are-a-developer-and-you-want-to-modify-the-code)
 * [Author](#Author)
 * [License](#License)
-*
+
 ## Install
 
 Do you need a local copy of this script? If no, don't install anything, just use it online: [https://html2md.avonture.be](https://html2md.avonture.be).
@@ -33,6 +34,12 @@ At the bottom of the page, you have a button for maximizing the markdown part (b
 ![demo.gif](image/demo.gif)
 
 ## Cool things
+
+### Using the url querystring parameter
+
+You can directly convert a page by specifying his URL like this : `https://html2md.avonture.be/?url=https://domain/page.html` i.e. by setting the `url` parameter on the querystring.
+
+This allow automation like, f.i., building a bookmarklet or providing a list of parametrized urls to get such HTML2MD conversion.
 
 ### Get content not the page
 
