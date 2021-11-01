@@ -1,6 +1,6 @@
-![banner](image/banner.png)
-
 # marknotes_html2md
+
+![banner](./banner.svg)
 
 > Quick HTML to markdown converter
 
